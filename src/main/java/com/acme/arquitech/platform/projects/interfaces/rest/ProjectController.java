@@ -1,13 +1,12 @@
 package com.acme.arquitech.platform.projects.interfaces.rest;
 
+import com.acme.arquitech.platform.iam.domain.model.valueobjects.Role;
 import com.acme.arquitech.platform.projects.internal.commandservices.ProjectCommandServiceImpl;
 import com.acme.arquitech.platform.projects.internal.queryservices.ProjectQueryServiceImpl;
 import com.acme.arquitech.platform.projects.domain.model.aggregates.Project;
 import com.acme.arquitech.platform.projects.interfaces.rest.resources.CreateProjectResource;
 import com.acme.arquitech.platform.projects.interfaces.rest.resources.ProjectResource;
 import com.acme.arquitech.platform.shared.interfaces.rest.resources.MessageResource;
-import com.acme.arquitech.platform.users.domain.model.aggregates.User;
-import com.acme.arquitech.platform.users.domain.model.valueobjects.Role;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;

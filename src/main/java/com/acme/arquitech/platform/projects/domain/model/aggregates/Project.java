@@ -1,8 +1,8 @@
 package com.acme.arquitech.platform.projects.domain.model.aggregates;
 
+import com.acme.arquitech.platform.iam.domain.model.aggregates.User;
 import com.acme.arquitech.platform.shared.domain.model.aggregates.AuditableAbstractAggregateRoot;
 import com.acme.arquitech.platform.projects.domain.model.valueobjects.ProjectStatus;
-import com.acme.arquitech.platform.users.domain.model.aggregates.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
