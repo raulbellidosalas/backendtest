@@ -20,4 +20,8 @@ public class ProjectQueryServiceImpl implements ProjectQueryService {
     public List<Project> findByUserIdAndRole(Long userId, Role role) {
         return projectRepository.findByUserIdAndRole(userId, role);
     }
+
+    public List<Project> findAll() {
+        return projectRepository.findAll();
+    }
 }
