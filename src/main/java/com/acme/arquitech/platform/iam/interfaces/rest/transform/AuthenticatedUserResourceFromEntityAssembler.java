@@ -5,6 +5,10 @@ import com.acme.arquitech.platform.iam.interfaces.rest.resources.AuthenticatedUs
 
 public class AuthenticatedUserResourceFromEntityAssembler {
     public static AuthenticatedUserResource toResourceFromEntity(User user, String token) {
-        return new AuthenticatedUserResource(user.getEmail(), token);
+        return new AuthenticatedUserResource(
+                user.getId(),
+                user.getName(),
+                user.getEmail(),
+                user.getRole(), token);
     }
 }

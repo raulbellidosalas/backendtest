@@ -9,6 +9,7 @@ import com.acme.arquitech.platform.projects.interfaces.rest.resources.ProjectRes
 import com.acme.arquitech.platform.shared.interfaces.rest.resources.MessageResource;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +17,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/v1/projects")
+@RequestMapping(value="/api/v1/projects", produces = MediaType.APPLICATION_JSON_VALUE)
 @Tag(name = "Projects", description = "Project Management Endpoints")
 public class ProjectController {
     private final ProjectQueryServiceImpl projectQueryService;
