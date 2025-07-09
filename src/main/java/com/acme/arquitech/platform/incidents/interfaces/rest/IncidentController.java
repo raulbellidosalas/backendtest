@@ -106,4 +106,23 @@ public class IncidentController {
         headers.setContentDispositionFormData("attachment", "incident-report-" + id + ".pdf");
         return ResponseEntity.ok().headers(headers).body(pdfContent);
     }
+
+    @Operation(summary = "Get all incidents")
+    @GetMapping
+    public List<IncidentResource> getAllIncidents() {
+        return incidentService.findAll().stream()
+                .map(incident -> new IncidentResource(
+                        incident.getId(),
+                        incident.getDate(),
+                        incident.getIncidentType(),
+                        incident.getSeverity(),
+                        incident.getStatus(),
+                        incident.getDescription(),
+                        incident.getMeasuresTaken(),
+                        incident.getProjectId(),
+                        incident.getCreatedAt(),
+                        incident.getUpdatedAt()
+                ))
+                .collect(Collectors.toList());
+    }
 }

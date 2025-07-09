@@ -77,4 +77,7 @@ public class IncidentCommandServiceImpl implements IncidentService {
             throw new RuntimeException("Error generating PDF report", e);
         }
     }
+    public List<Incident> findAll() {
+        return incidentRepository.findAll();
+    }
 }
