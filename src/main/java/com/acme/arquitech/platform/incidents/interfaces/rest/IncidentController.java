@@ -150,4 +150,10 @@ public class IncidentController {
                 ))
                 .collect(Collectors.toList());
     }
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Delete an incident by ID")
+    public ResponseEntity<MessageResource> deleteIncident(@PathVariable Long id) {
+        incidentService.delete(id);
+        return ResponseEntity.ok(new MessageResource("Incident deleted successfully"));
+    }
 }
