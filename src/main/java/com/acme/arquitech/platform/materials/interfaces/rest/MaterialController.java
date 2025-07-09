@@ -56,6 +56,14 @@ public class MaterialController {
         return new ResponseEntity<>(toResource(savedMaterial), HttpStatus.CREATED);
     }
 
+    @GetMapping
+    public ResponseEntity<List<MaterialResource>> getAllMaterials() {
+        List<MaterialResource> resources = queryService.findAll()
+                .stream()
+                .map(this::toResource)
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(resources, HttpStatus.OK);
+    }
     @GetMapping("/{id}")
     public ResponseEntity<MaterialResource> getMaterial(@PathVariable Long id) {
         return queryService.findById(id)
