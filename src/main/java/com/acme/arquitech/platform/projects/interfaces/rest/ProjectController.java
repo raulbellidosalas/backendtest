@@ -28,6 +28,29 @@ public class ProjectController {
         this.projectCommandService = projectCommandService;
     }
 
+
+        @GetMapping
+        public ResponseEntity<List<ProjectResource>> getAllProjects() {
+            List<Project> projects = projectQueryService.findAll();
+            if (projects.isEmpty()) {
+                return ResponseEntity.ok(List.of());
+            }
+            List<ProjectResource> resources = projects.stream()
+                    .map(project -> new ProjectResource(
+                            project.getId(),
+                            project.getName(),
+                            project.getStartDate(),
+                            project.getEndDate(),
+                            project.getBudget(),
+                            project.getStatus(),
+                            project.getUser().getId(),
+                            project.getContractor().getId(),
+                            project.getImageUrl()))
+                    .collect(Collectors.toList());
+            return ResponseEntity.ok(resources);
+        }
+
+
     @GetMapping("/supervisor/{userId}")
     public ResponseEntity<?> getProjectsBySupervisor(@PathVariable Long userId) {
         List<Project> projects = projectQueryService.findByUserIdAndRole(userId, Role.SUPERVISOR);
